@@ -1,0 +1,67 @@
+* { margin: 0; padding: 0; list-style: none }
+body { background: #000; font-family: 'avenir Next', 'sans-serif'; width: 100%; }
+.container { position: relative; -webkit-transition: all .3s ease; transition: all .3s ease; padding: 40px 0; }
+div[class*='card-container-'] { position: relative; margin: 40px auto; width: 200px; height: 200px; -webkit-perspective: 500px; perspective: 500px; }
+.card h1 { font-size: 2em; font-weight: 600; padding: 1em 0 0 1em; }
+.card-container-1 { cursor: pointer; cursor: hand; color: #bfd3f8; }
+.card-container-1 .card { position: absolute; left: 0; top: 0; width: 100%; height: 100%; -webkit-transition: all .2s ease; transition: all .2s ease; border-radius: 2px; }
+.card-container-1 .card:last-of-type { background-color: #324b77; z-index: 80; }
+.card-container-1 .card:nth-last-of-type(2) { background-color: #4b70b2; z-index: 90; }
+.card-container-1 .card:first-of-type { background-color: cornflowerblue; z-index: 100; }
+.card-container-1:hover .card:first-of-type { -webkit-transform: rotateX(-20deg) translateZ(0px); transform: rotateX(-20deg) translateZ(0px); }
+.card-container-1:hover .card:nth-last-of-type(2) { -webkit-transform: rotateX(-20deg) translateZ(-100px); transform: rotateX(-20deg) translateZ(-100px); }
+.card-container-1:hover .card:last-of-type { -webkit-transform: rotateX(-20deg) translateZ(-200px); transform: rotateX(-20deg) translateZ(-200px); }
+
+.card-container-2 { cursor: pointer; cursor: hand; color: #ff887b; }
+.card-container-2 .controller { position: absolute; z-index: 200; top: 0; width: 50%; height: 100%; background: none; }
+.card-container-2 .controller.left { left: 0; }
+.card-container-2 .controller.right { right: 0; }
+.card-container-2 .card { position: absolute; left: 0; top: 0; width: 100%; height: 100%; -webkit-transition: all .3s ease; transition: all .3s ease; border-radius: 2px; background-color: mistyrose; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); z-index: 90; opacity: .9; }
+.card-container-2 .card:first-of-type { z-index: 100; opacity: 1; }
+.card-container-2 .card:nth-of-type(n+2) { -webkit-transform: scale(0.8); transform: scale(0.8); }
+.card-container-2:hover .card:first-of-type { -webkit-transform: scale(0.9); transform: scale(0.9); -webkit-transform-origin: center; transform-origin: center; }
+.card-container-2:hover .card:nth-last-of-type(2) { -webkit-transform: scale(0.8) rotate(-5deg) translateY(-20px); transform: scale(0.8) rotate(-5deg) translateY(-20px); -webkit-transform-origin: bottom left; transform-origin: bottom left; }
+.card-container-2:hover .card:last-of-type { -webkit-transform: scale(0.8) rotate(5deg) translateY(-20px); transform: scale(0.8) rotate(5deg) translateY(-20px); -webkit-transform-origin: bottom right; transform-origin: bottom right; }
+.card-container-3 { color: #998100; }
+.card-container-3 .controller { cursor: pointer; cursor: hand; position: absolute; z-index: 200; top: 0; width: 30%; height: 100%; background: none; }
+.card-container-3 .controller.left { left: 0; }
+.card-container-3 .controller.right { right: 0; }
+.card-container-3 .card { position: absolute; left: 0; top: 0; width: 100%; height: 100%; -webkit-transition: all .3s ease; transition: all .3s ease; border-radius: 2px; background-color: gold; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); }
+.card-container-3 .card:first-of-type { z-index: 100; }
+.card-container-3 .card:nth-of-type(2) { z-index: 90; }
+.card-container-3 .card:last-of-type { z-index: 80; }
+.card-container-3 .right:hover ~ .card:first-of-type { -webkit-transform: rotateY(20deg) translateZ(0px); transform: rotateY(20deg) translateZ(0px); }
+.card-container-3 .right:hover ~ .card:nth-last-of-type(2) { -webkit-transform: rotateY(20deg) translateZ(-100px); transform: rotateY(20deg) translateZ(-100px); }
+.card-container-3 .right:hover ~ .card:last-of-type { -webkit-transform: rotateY(20deg) translateZ(-200px); transform: rotateY(20deg) translateZ(-200px); }
+.card-container-3 .left:hover ~ .card:first-of-type { -webkit-transform: rotateY(-20deg) translateZ(0px); transform: rotateY(-20deg) translateZ(0px); }
+.card-container-3 .left:hover ~ .card:nth-last-of-type(2) { -webkit-transform: rotateY(-20deg) translateZ(-100px); transform: rotateY(-20deg) translateZ(-100px); }
+.card-container-3 .left:hover ~ .card:last-of-type { -webkit-transform: rotateY(-20deg) translateZ(-200px); transform: rotateY(-20deg) translateZ(-200px); }
+.card-container-4 { color: #ffb9ad; }
+.card-container-4 .card { position: absolute; left: 0; top: 0; width: 100%; height: 100%; -webkit-transition: all .3s ease; transition: all .3s ease; border-radius: 2px; background-color: tomato; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); }
+.card-container-4 .card:last-of-type { z-index: 80; }
+.card-container-4 .card:nth-last-of-type(2) { z-index: 90; }
+.card-container-4 .card:first-of-type { z-index: 100; }
+.card-container-4:hover .card:first-of-type { opacity: .8; }
+.card-container-4:hover .card:first-of-type:hover { top: 0; }
+.card-container-4:hover .card:first-of-type ~ .card { cursor: pointer; cursor: hand; }
+.card-container-4:hover .first { -webkit-transform: scale(0.5) translateX(-105%); transform: scale(0.5) translateX(-105%); }
+.card-container-4:hover .second { -webkit-transform: scale(0.5) translateX(0); transform: scale(0.5) translateX(0); }
+.card-container-4:hover .third { -webkit-transform: scale(0.5) translateX(105%); transform: scale(0.5) translateX(105%); }
+.card-container-4:hover .card:hover { top: -5px; }
+.card-container-5 { cursor: pointer; cursor: hand; color: #793c11; }
+.card-container-5 .card { position: absolute; left: 0; top: 0; width: 100%; height: 100%; -webkit-transition: all .3s ease; transition: all .3s ease; border-radius: 2px; background-color: chocolate; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); -webkit-transform-origin: bottom left; transform-origin: bottom left; }
+.card-container-5 .card:last-of-type { z-index: 80; }
+.card-container-5 .card:nth-last-of-type(2) { z-index: 90; }
+.card-container-5 .card:first-of-type { z-index: 100; }
+.card-container-5:hover .card { border-bottom-left-radius: 10px; }
+.card-container-5:hover .card:first-of-type { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+.card-container-5:hover .card:nth-of-type(2) { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+.card-container-5:hover .card:last-of-type { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+.card-container-6 { color: #1ec71e; }
+.card-container-6 .card { position: absolute; left: 0; top: 0; width: 100%; height: 100%; -webkit-transition: all .3s ease; transition: all .3s ease; border-radius: 2px; background-color: lightgreen; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); }
+.card-container-6 .card:last-of-type { z-index: 80; -webkit-transform: scale(0.45); transform: scale(0.45); -webkit-transform-origin: bottom center; transform-origin: bottom center; }
+.card-container-6 .card:nth-last-of-type(2) { z-index: 90; -webkit-transform: scale(0.45); transform: scale(0.45); -webkit-transform-origin: bottom center; transform-origin: bottom center; }
+.card-container-6 .card:first-of-type { z-index: 100; -webkit-transform-origin: top center; transform-origin: top center; }
+.card-container-6:hover .card:first-of-type { -webkit-transform: scale(0.8) translateY(-21px); transform: scale(0.8) translateY(-21px); }
+.card-container-6:hover .card:nth-of-type(2) { cursor: hand; cursor: pointer; -webkit-transform: scale(0.38) translate(-55%, 35%); transform: scale(0.38) translate(-55%, 35%); }
+.card-container-6:hover .card:last-of-type { cursor: hand; cursor: pointer; -webkit-transform: scale(0.38) translate(55%, 35%); transform: scale(0.38) translate(55%, 35%); }

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多种基于jQuery的动画图片切换效果</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- 代码部分begin -->
+	<div class="container">
+		<div class="card-container-1">
+			<div class="card"><h1>1</h1></div>
+			<div class="card"><h1>2</h1></div>
+			<div class="card"><h1>3</h1></div>
+		</div>
+
+		<div class="card-container-2">
+			<div class="controller right"></div>
+    		<div class="controller left"></div>
+    		<div class="card-holder">
+    			<div class="card"><h1>1</h1></div>
+    			<div class="card"><h1>2</h1></div>
+    			<div class="card"><h1>3</h1></div>
+    		</div>
+		</div>
+
+		<div class="card-container-3">
+			<span class="controller right"></span>
+			<span class="controller left"></span>
+			<div class="card"><h1>1</h1></div>
+			<div class="card"><h1>2</h1></div>
+			<div class="card"><h1>3</h1></div>
+		</div>
+
+		<div class="card-container-4">
+			<div class="card first"><h1>1</h1></div>
+			<div class="card second"><h1>2</h1></div>
+			<div class="card third"><h1>3</h1></div>
+		</div>
+
+		<div class="card-container-5">
+			<div class="card"><h1>1</h1></div>
+			<div class="card"><h1>2</h1></div>
+			<div class="card"><h1>3</h1></div>
+		</div>
+
+		<div class="card-container-6">
+			<div class="card"><h1>1</h1></div>
+			<div class="card"><h1>2</h1></div>
+			<div class="card"><h1>3</h1></div>
+		</div>
+
+	</div>
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		//card-container-1
+		var cc1 = $('.card-container-1');
+		cc1.on('click',function(){
+		    var disappear = {
+		      top: '30px',
+		      opacity: '0'
+		    },
+		    appear={
+		      top:'0',
+		      opacity:'1'
+		    }
+		    var firstCard = cc1.children('.card').first();
+		  	firstCard.css(disappear); //第一个消失
+		  	var x = setTimeout(function(){
+		    	firstCard.css(appear);
+		    	$('.card-container-1').append(firstCard); //将第一个移动到最后
+		  	},200);
+		})
+	</script>
+	<script>
+		//card-container-2
+		var cc2 = $('.card-container-2');
+		cc2.children('.right').on('click',function(){
+		  	var firstCard = $('.card-container-2 .card').first();
+		  	cc2.children('.card-holder').append(firstCard);
+		});
+		cc2.children('.left').on('click',function(){
+		  	var lastCard = $('.card-container-2 .card').last();
+		  	cc2.children('.card-holder').prepend(lastCard);
+		});
+	</script>
+	<script>
+		//card-container-3
+		var cc3 = $('.card-container-3');
+		var cssLeft = {
+		      left: '20px',
+		      opacity: 0
+		    },
+		    cssRight = {
+		      left: '-20px',
+		      opacity: 0
+		    },
+		    cssReset = {
+		      right: 0,
+		      left: 0,
+		      opacity: 1
+		    };
+		cc3.children('.right').click(function(){
+		  	var firstCard = $('.card-container-3 .card').first();
+		  	firstCard.css(cssLeft);
+		  	setTimeout(function(){
+		    	cc3.append(firstCard);
+		    	firstCard.css(cssReset);
+		  	},300)
+		});
+		cc3.children('.left').click(function(){
+		  	var lastCard = $('.card-container-3 .card').last();
+		  	lastCard.css(cssRight);
+		  	lastCard.insertAfter(cc3.children('.controller.left'));
+		  	setTimeout(function(){
+		    	lastCard.css(cssReset);
+		  	},300)
+		});
+	</script>
+	<script>
+		//card-container-4
+		var cc4 = $('.card-container-4');
+		cc4.children('.card').click(function(){
+		  	cc4.prepend($(this));
+		})
+	</script>
+	<script>
+		//card-container-5
+		var cc5 = $('.card-container-5');
+		cc5.click(function(){
+			var firstCard = cc5.children('.card').first(),
+	      	cssRoll = {
+	        	transform: 'rotate(-45deg)',
+	        	opacity:0
+	      	};
+		  	firstCard.css(cssRoll);
+		  	setTimeout(function(){
+		  	cc5.append(firstCard);
+		    	firstCard.attr('style','');
+		  	},300);
+		});
+	</script>
+	<script>
+		//card-container-6
+		var cc6 = $('.card-container-6'),
+		    cssAppear = {
+		      opacity: 0
+		    }
+		cc6.children('.card').click(function(e){
+		  	cc6.prepend($(this)); 
+		})
+	</script>
+	<!-- 代码部分end -->
+</body>
+</html>
